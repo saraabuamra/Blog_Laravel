@@ -73,7 +73,7 @@
                     color:white !important;" @endif href="{{route('channel.channels')}}" class="nav-link">
                       <i class="nav-icon fas fa-star"></i>
                         <p>
-                            قنوات اليوتيوب
+                            سارة اليوتيوب
                         </p>
                     </a>
                 </li>
