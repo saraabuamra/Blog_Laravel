@@ -15,7 +15,7 @@ use Illuminate\View\View;
 class PasswordController extends Controller
 {
 
-    public function edit(Request $request): View
+    public function edit(): View
     {
         Session::put('page','update_password');
         return view('profile.edit_password');

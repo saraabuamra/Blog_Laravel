@@ -22,7 +22,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item has-treeview menu-open" style="margin-top: 5px">
+                <li class="nav-item has-treeview menu-close" style="margin-top: 5px">
                     <a @if (Session::get('page') == 'update_user' || Session::get('page') == 'update_password') style="background-color:#007BFF !important; 
                     color:white !important;" @endif  href="#" class="nav-link">
                         <i class="nav-icon fas fa-user"></i>
@@ -49,6 +49,42 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'poems') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('poem.poems')}}" class="nav-link">
+                        <i class="nav-icon fas fa-list"></i>
+                        <p>
+                            القصائد
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'articals') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('artical.articals')}}" class="nav-link">
+                        <i class="nav-icon fas fa-table"></i>
+                        <p>
+                            المقالات
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'channels') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('channel.channels')}}" class="nav-link">
+                      <i class="nav-icon fas fa-star"></i>
+                        <p>
+                            قنوات اليوتيوب
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'categories') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('category.categories')}}" class="nav-link">
+                      <i class="nav-icon fas fa-file"></i>
+                        <p>
+                             الفئات
+                        </p>
+                    </a>
                 </li>
             </ul>
         </nav>

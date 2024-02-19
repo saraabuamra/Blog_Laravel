@@ -8,7 +8,6 @@
 @endsection
 
 @section('content')
-<x-app-layout>
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -18,14 +17,14 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">الصفحة الرئيسية</a></li>
+                        <li class="breadcrumb-item"><a href="{{route('dashboard')}}">الصفحة الرئيسية</a></li>
                         <li class="breadcrumb-item active">الرئيسية</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
     </div>
-</x-app-layout>
+    <img src="{{asset('admin/images/dashboard-image.jpg')}}" class="img-fluid">
 @endsection
 
 @section('script')
