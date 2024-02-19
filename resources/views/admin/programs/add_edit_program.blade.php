@@ -1,10 +1,9 @@
 @extends('dashboard.layouts.layout')
 
-@section('title',' إضافة - تعديل قصيدة')
+@section('title',' إضافة - تعديل برنامج')
 
 
 @section('style')
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -23,27 +22,47 @@
                                 @endforeach
                             </div>
                         @endif
-                        <form class="forms-sample" @if (empty($poem['id'])) action="{{ url('admin/add-edit-poem') }}"
-                            @else action="{{ url('admin/add-edit-poem/'.$poem['id']) }}" @endif  method="post" enctype="multipart/form-data">
+                        <form class="forms-sample" @if (empty($program['id'])) action="{{ url('admin/add-edit-program') }}"
+                            @else action="{{ url('admin/add-edit-program/'.$program['id']) }}" @endif  method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <label for="name">اسم القصيدة</label>
+                                <label for="name">اسم البرنامج التدريبي</label>
                                 <input type="text" class="form-control" id="name"
-                                     name="name" placeholder="اكتب اسم القصيدة" @if (!empty($poem['name']))
-                                     value="{{ $poem['name'] }}" @else value="{{old('name')}}"
+                                     name="name" placeholder="اكتب اسم البرنامج" @if (!empty($program['name']))
+                                     value="{{ $program['name'] }}" @else value="{{old('name')}}"
+                                    @endif >
+                            </div>
+                            {{-- <div class="form-group">
+                                <label for="category_id">اختر فئة</label>
+                                 <select name="category_id" id="category_id" class="form-control text-dark">
+                                     <option value="">اختر</option>
+                                     @foreach ($categories as $category)
+                                 <option @if (!empty($program['category_id']==$category['id']))
+                                 selected @endif value="{{$category['id']}}">{{$category['name']}}</option>
+                                     @endforeach
+                                 </select>
+                            </div> --}}
+                            <div class="form-group">
+                                <label for="hour">عدد ساعات البرنامج التدريبي</label>
+                                <input type="text" class="form-control" id="hour"
+                                     name="hour" placeholder="اكتب عدد ساعات البرنامج" @if (!empty($program['hour']))
+                                     value="{{ $program['hour'] }}" @else value="{{old('hour')}}"
                                     @endif >
                             </div>
                             <div class="form-group">
-                                <label for="content">نص القصيدة</label>
-                                <textarea name="content" placeholder="اكتب نص القصيدة"  class="form-control" id="summernote" rows="8">{{$poem['content']}}</textarea>
+                                <label for="goal">الهدف من البرنامج التدريبي</label>
+                                <input type="text" class="form-control" id="goal"
+                                     name="goal" placeholder="اكتب الهدف من البرنامج" @if (!empty($program['goal']))
+                                     value="{{ $poem['goal'] }}" @else value="{{old('goal')}}"
+                                    @endif >
                             </div>
                             <div class="form-group">
-                                <label  for="image">صورة القصيدة</label>
+                                <label  for="image">صورة البرنامج التدريبي</label>
                                 <input type="file" class="form-control"  id="image" hidden
                                  name="image">
-                                 @if (!empty($poem['image']))
+                                 @if (!empty($program['image']))
                                  <br>
-                                     <img  src="{{url('admin/images/poem_images/'.$poem['image'])}}" width="430px" height="200px"/>
+                                     <img  src="{{url('admin/images/program_images/'.$program['image'])}}" width="430px" height="200px"/>
                                  @endif
                             </div>
                             <div class="input-group mb-3" >
@@ -52,13 +71,11 @@
                               </div>
                           
                             <button style="background-color: #007DFE; border-color: #007DFE;" type="submit" class="btn btn-primary mr-2">حفظ</button>
-                            <a href="{{route('poem.poems')}}"  style="background-color: #dadee2; border-color: #dadee2;" type="reset" class="btn btn-light">إغلاق</a>
+                            <a href="{{route('program.programs')}}"  style="background-color: #dadee2; border-color: #dadee2;" type="reset" class="btn btn-light">إغلاق</a>
                         </form>
                     </div>
         </div> 
 
 @endsection
 @section('script')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 @endsection

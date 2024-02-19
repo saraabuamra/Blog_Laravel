@@ -9,7 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function programs(){
-        return $this->hasMany('App\Models\Program','category_id');
+    public static function categories(){
+        $getCategories = Category::with('categories')->get()->toArray();
+        return $getCategories;
     }
+
+    
 }

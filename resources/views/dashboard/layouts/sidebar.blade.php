@@ -73,7 +73,7 @@
                     color:white !important;" @endif href="{{route('channel.channels')}}" class="nav-link">
                       <i class="nav-icon fas fa-star"></i>
                         <p>
-                            سارة اليوتيوب
+                            قنوات اليوتيوب
                         </p>
                     </a>
                 </li>
@@ -83,6 +83,15 @@
                       <i class="nav-icon fas fa-file"></i>
                         <p>
                              الفئات
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'programs') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('program.programs')}}" class="nav-link">
+                      <i class="nav-icon fas fa-moon"></i>
+                        <p>
+                             البرامج التدريبية
                         </p>
                     </a>
                 </li>

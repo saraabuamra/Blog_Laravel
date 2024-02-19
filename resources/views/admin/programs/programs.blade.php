@@ -12,50 +12,62 @@
           <div class="card">
             <div class="card-body">
               <x-auth-session-status class="mb-4" :status="session('status')" />
-              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:150px" class="btn btn-primary" href="{{url('admin/add-edit-poem')}}">إضافة قصيدة</a>
+              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:150px" class="btn btn-primary" href="{{url('admin/add-edit-program')}}">إضافة برنامج</a>
               <br/>
               <br/>
               <div class="table-responsive-md">
-                <table id="poems" class="table table-bordered">
+                <table id="programs" class="table table-bordered">
                   <thead>
                     <tr>
                       <th>
                          رقم المتسلسل
                       </th>
                       <th>
-                        اسم القصيدة
+                        اسم البرنامج التدريبي
                       </th>
                       <th>
-                        نص القصيدة
+                       الفئة
                       </th>
                       <th>
-                        صورة القصيدة
+                         عدد الساعات
                       </th>
+                      <th>
+                         الهدف
+                     </th>
+                     <th>
+                       الصورة
+                   </th>
                       <th>
                         الإعدادات
                       </th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($poems as $poem )
+                    @foreach ($programs as $program )
                     <tr>
                       <td>
-                        {{$poem['id']}}
+                        {{$program['id']}}
                       </td>
                       <td>
-                        {{$poem['name']}}
+                        {{$program['name']}}
                       </td>
                       <td>
-                        {{$poem['content']}}
+                        {{$program['category']['category_name']}}
+                      </td>
+                      <td>
+                        {{$program['hours']}}
+                      </td>
+                      <td>
+                        {{$program['goal']}}
                       </td>
                        <td>
-                        <img style="width: 180px" src="{{asset('admin/images/poem_images/'.$poem['image'])}}"> 
+                        <img style="width: 180px" src="{{asset('admin/images/program_images/'.$program['image'])}}"> 
                       </td>
                       <td>
-                       <a href="{{url('admin/add-edit-poem/'.$poem['id'])}}">
+                       <a href="{{url('admin/add-edit-program/'.$program['id'])}}">
                         <i style="font-size: 25px ;color:#007DFE;"
                         class="nav-icon fas fa-edit"></i> </a>
-                            <a href="javascript:void(0)" module="poem" categ="القصيدة" class="confirmDelete" moduleid="{{$poem['id']}}">
+                            <a href="javascript:void(0)" module="program" categ="البرنامج التدريبي" class="confirmDelete" moduleid="{{$program['id']}}">
                                 <i style="font-size: 25px ;color:#007DFE;"
                                 class="nav-icon fas fa-trash"></i> </a>
                       </td>

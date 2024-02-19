@@ -59,7 +59,8 @@ class PoemController extends Controller
                     'content'=>'required'
             ],[
                 'name.required'=>'اسم القصيدة مطلوب',
-                'content.required'=>'نص القصيدة مطلوب'
+                'content.required'=>'نص القصيدة مطلوب',
+                'image.image'=>'يجب أن يكون الملف عبارة عن صورة',
             ]);
 
            //upload Poem image
