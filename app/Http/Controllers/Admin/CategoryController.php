@@ -4,12 +4,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 use Illuminate\Support\Facades\Session;
-use Intervention\Image\Facades\Image;
 
 class CategoryController extends Controller
 {
-    public function categories(){
+    public function categories() : View{
         Session::put('page','categories');
         $categories = Category::get()->toArray();
         // dd($categories);

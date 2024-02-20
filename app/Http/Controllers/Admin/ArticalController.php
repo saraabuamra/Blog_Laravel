@@ -7,7 +7,7 @@ use App\Models\Artical;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Session;
-use Intervention\Image\Facades\Image;
+
 class ArticalController extends Controller
 {
     public function articals(): View

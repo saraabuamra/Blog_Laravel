@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','القصائد')
+@section('title','البرامج التدريبية')
 
 
 @section('style')
@@ -16,7 +16,7 @@
               <br/>
               <br/>
               <div class="table-responsive-md">
-                <table id="programs" class="table table-bordered">
+                <table id="programs" class="table table-bordered" >
                   <thead>
                     <tr>
                       <th>

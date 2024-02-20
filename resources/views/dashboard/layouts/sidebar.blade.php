@@ -95,6 +95,42 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'courses') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('course.courses')}}" class="nav-link">
+                      <i class="nav-icon fas fa-tv"></i>
+                        <p>
+                             الدورات  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'certificates') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('certificate.certificates')}}" class="nav-link">
+                      <i class="nav-icon fas fa-sound"></i>
+                        <p>
+                             الشهادات  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'qualifications') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('qualification.qualifications')}}" class="nav-link">
+                      <i class="nav-icon fas fa-camera"></i>
+                        <p>
+                             المؤهلات العلمية  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'experiences') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('experience.experiences')}}" class="nav-link">
+                      <i class="nav-icon fas fa-camera"></i>
+                        <p>
+                              الخبرات  
+                        </p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

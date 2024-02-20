@@ -5,19 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Program extends Model
+class Course extends Model
 {
     use HasFactory;
 
-
     protected $fillable = [
         'name',
-        'hours',
-        'goal',
-        'image',
+        'start_date',
+        'end_date',
+        'days',
+        'notes',
     ];
 
-    public function category(){
-        return $this->belongsTo('App\Models\Category','category_id');
+    public function program(){
+        return $this->belongsTo('App\Models\Program','program_id');
     }
 }

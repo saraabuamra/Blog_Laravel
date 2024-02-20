@@ -1,10 +1,10 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','قنوات اليوتيوب')
+@section('title','الخبرات')
 
 
 @section('style')
-    
+  
 @endsection
 
 @section('content')
@@ -12,44 +12,48 @@
           <div class="card">
             <div class="card-body">
               <x-auth-session-status class="mb-4" :status="session('status')" />
-              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:150px" class="btn btn-primary" href="{{url('admin/add-edit-channel')}}">إضافة قناة يوتيوب</a>
+              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:150px" class="btn btn-primary" href="{{url('admin/add-edit-experience')}}">إضافة خبرة</a>
               <br/>
               <br/>
               <div class="table-responsive">
-                <table id="channels" class="table table-bordered">
+                <table id="experiences" class="table table-bordered" style="text-align:center;">
                   <thead style=" white-space: nowrap;">
                     <tr>
                       <th>رقم المتسلسل</th>
-                      <th> عنوان قناة اليوتيوب</th>
-                      <th>رابط قناة اليوتيوب </th>
-                      <th>وصف</th>
+                      <th>اسم الخبرة</th>
+                      <th>الجهة المسؤولة</th>
+                      <th>تاريخ البدء</th>
+                      <th>تاريخ الانتهاء</th>
                       <th>ملاحظات</th>
                       <th>الإعدادات</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($channels as $channel )
+                    @foreach ($experiences as $experience )
                     <tr>
                       <td>
-                        {{$channel['id']}}
+                        {{$experience['id']}}
                       </td>
                       <td>
-                        {{$channel['title']}}
+                        {{$experience['name']}}
                       </td>
                       <td>
-                        {{$channel['url']}}
-                      </td>
-                      <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
-                        {{$channel['description']}}
-                      </td>
-                      <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
-                        {{$channel['notes']}}
+                        {{$experience['theside']}}
                       </td>
                       <td>
-                       <a href="{{url('admin/add-edit-channel/'.$channel['id'])}}">
+                        {{$experience['from_date']}}
+                      </td>
+                      <td>
+                        {{$experience['to_date']}}
+                      </td>
+                      <td>
+                        {{$experience['notes']}}
+                      </td>
+                      <td>
+                       <a href="{{url('admin/add-edit-experience/'.$experience['id'])}}">
                         <i style="font-size: 25px ;color:#007DFE;"
                         class="nav-icon fas fa-edit"></i> </a>
-                            <a href="javascript:void(0)" module="channel" categ="قناة اليوتيوب" class="confirmDelete" moduleid="{{$channel['id']}}">
+                            <a href="javascript:void(0)" module="experience" categ="الخبرة" class="confirmDelete" moduleid="{{$experience['id']}}">
                                 <i style="font-size: 25px ;color:#007DFE;"
                                 class="nav-icon fas fa-trash"></i> </a>
                       </td>

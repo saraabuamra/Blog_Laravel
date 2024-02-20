@@ -32,28 +32,28 @@
                                      value="{{ $program['name'] }}" @else value="{{old('name')}}"
                                     @endif >
                             </div>
-                            {{-- <div class="form-group">
+                            <div class="form-group">
                                 <label for="category_id">اختر فئة</label>
-                                 <select name="category_id" id="category_id" class="form-control text-dark">
-                                     <option value="">اختر</option>
+                                 <select  name="category_id" id="category_id" class="form-select form-select-lg mb-3">
+                                     <option  value="">اختر</option>
                                      @foreach ($categories as $category)
                                  <option @if (!empty($program['category_id']==$category['id']))
-                                 selected @endif value="{{$category['id']}}">{{$category['name']}}</option>
+                                 selected  @endif value="{{$category['id']}}">{{$category['category_name']}}</option>
                                      @endforeach
                                  </select>
-                            </div> --}}
+                            </div>
                             <div class="form-group">
-                                <label for="hour">عدد ساعات البرنامج التدريبي</label>
-                                <input type="text" class="form-control" id="hour"
-                                     name="hour" placeholder="اكتب عدد ساعات البرنامج" @if (!empty($program['hour']))
-                                     value="{{ $program['hour'] }}" @else value="{{old('hour')}}"
+                                <label for="hours">عدد ساعات البرنامج التدريبي</label>
+                                <input type="text" class="form-control" id="hours"
+                                     name="hours" placeholder="اكتب عدد ساعات البرنامج" @if (!empty($program['hours']))
+                                     value="{{ $program['hours'] }}" @else value="{{old('hours')}}"
                                     @endif >
                             </div>
                             <div class="form-group">
                                 <label for="goal">الهدف من البرنامج التدريبي</label>
                                 <input type="text" class="form-control" id="goal"
                                      name="goal" placeholder="اكتب الهدف من البرنامج" @if (!empty($program['goal']))
-                                     value="{{ $poem['goal'] }}" @else value="{{old('goal')}}"
+                                     value="{{ $program['goal'] }}" @else value="{{old('goal')}}"
                                     @endif >
                             </div>
                             <div class="form-group">

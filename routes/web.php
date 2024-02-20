@@ -2,9 +2,13 @@
 
 use App\Http\Controllers\Admin\ArticalController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\ChannelController;
+use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\PoemController;
 use App\Http\Controllers\Admin\ProgramController;
+use App\Http\Controllers\Admin\QualificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -73,6 +77,45 @@ Route::middleware('auth')->prefix('admin')->group(function () {
         
      //add-edit-program
      Route::match(['get', 'post'],'add-edit-program/{id?}',[ProgramController::class, 'addEditProgram']);
+
+    // courses
+    Route::get('/courses', [CourseController::class, 'courses'])->name('course.courses');
+
+    //delete course
+    Route::get('delete-course/{id}',[CourseController::class, 'deleteCourse'])->name('course.deletecourse');
+         
+    //add-edit-course
+    Route::match(['get', 'post'],'add-edit-course/{id?}',[CourseController::class, 'addEditCourse']);
+
+    //Update course Status
+    Route::post('update-course-status',[CourseController::class, 'updateCourseStatus']);
+
+    // certificates
+    Route::get('/certificates', [CertificateController::class, 'certificates'])->name('certificate.certificates');
+
+    //delete certificate
+    Route::get('delete-certificate/{id}',[CertificateController::class, 'deleteCertificate'])->name('certificate.deletecertificate');
+           
+    //add-edit-certificate
+    Route::match(['get', 'post'],'add-edit-certificate/{id?}',[CertificateController::class, 'addEditCertificate']);
+
+    //qualifications
+    Route::get('/qualifications', [QualificationController::class, 'qualifications'])->name('qualification.qualifications');
+
+    //delete qualification
+    Route::get('delete-qualification/{id}',[QualificationController::class, 'deleteQualification'])->name('qualification.deletequalification');
+         
+    //add-edit-qualification
+    Route::match(['get', 'post'],'add-edit-qualification/{id?}',[QualificationController::class, 'addEditQualification']);
+
+    //experiences
+    Route::get('/experiences', [ExperienceController::class, 'experiences'])->name('experience.experiences');
+
+    //delete experience
+    Route::get('delete-experience/{id}',[ExperienceController::class, 'deleteExperience'])->name('experience.deleteexperience');
+            
+    //add-edit-experience
+    Route::match(['get', 'post'],'add-edit-experience/{id?}',[ExperienceController::class, 'addEditExperience']);
 });
 
 require __DIR__.'/auth.php';

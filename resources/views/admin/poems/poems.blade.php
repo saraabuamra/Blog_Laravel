@@ -16,7 +16,7 @@
               <br/>
               <br/>
               <div class="table-responsive-md">
-                <table id="poems" class="table table-bordered">
+                <table id="poems" class="table table-bordered" >
                   <thead>
                     <tr>
                       <th>
@@ -45,7 +45,7 @@
                       <td>
                         {{$poem['name']}}
                       </td>
-                      <td>
+                      <td style="word-wrap: break-word;min-width: 160px;max-width: 160px;">
                         {{$poem['content']}}
                       </td>
                        <td>

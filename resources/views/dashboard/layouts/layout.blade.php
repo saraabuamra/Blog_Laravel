@@ -9,6 +9,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <title>@yield('title')</title>
     <!-- Font Awesome Icons -->
@@ -22,6 +23,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('admin/css/dataTables.bootstrap5.css')}}"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
     @yield('style')
 </head>
@@ -57,13 +59,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="{{ asset('admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
-    {{-- <script src="{{ asset('admin/js/dataTables.bootstrap5.js') }}"></script> --}}
-    {{-- <script src="{{ asset('admin/js/bootstrap.bundle.min.js') }}"></script> --}}
-    <script src="{{ asset('admin/js/jquery-3.7.1.js') }}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
     <script src="{{ asset('admin/js/dataTables.js') }}"></script>
     <script src="{{ asset('admin/js/custom.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+    <script type="text/javascript"  src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 
 
     @yield('script')

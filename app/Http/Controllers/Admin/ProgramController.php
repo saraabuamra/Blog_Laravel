@@ -62,6 +62,7 @@ class ProgramController extends Controller
             ],[
                 'name.required'=>'اسم البرنامج التدريبي مطلوب',
                 'hours.required'=>' عدد ساعات البرنامج التدريبي مطلوبة',
+                'goal.required'=>'الهدف من البرنامج التدريبي مطلوب',
                 'image.image'=>'يجب أن يكون الملف عبارة عن صورة',
                 'category_id.required'=>'الفئة مطلوبة'
             ]);
@@ -83,13 +84,14 @@ class ProgramController extends Controller
            }
            $program->name = $request->name;
            $program->hours = $request->hours;
+           $program->goal = $request->goal;
            $categoryDetails = Category::find($data['category_id']);
            $program->category_id = $data['category_id'];
-        //    $categories = Category::get()->toArray();
-           dd($program);
            $program->save();
            return redirect('admin/programs')->with('status',$message);
        }
-       return view('admin.programs.add_edit_program')->with(compact('title','program','message'));
+       $categories = Category::get()->toArray();
+       //dd($categories);
+       return view('admin.programs.add_edit_program')->with(compact('title','categories','program','message'));
       }
 }

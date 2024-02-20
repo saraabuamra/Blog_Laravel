@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','الفئات')
+@section('title','الؤهلات العلمية')
 
 
 @section('style')
@@ -12,38 +12,50 @@
           <div class="card">
             <div class="card-body">
               <x-auth-session-status class="mb-4" :status="session('status')" />
-              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:150px" class="btn btn-primary" href="{{url('admin/add-edit-category')}}">إضافة فئة</a>
+              <a style="background-color: #007DFE;border-color: #007DFE; float: right; width:180px" class="btn btn-primary" href="{{url('admin/add-edit-qualification')}}">إضافة مؤهل علمي</a>
               <br/>
               <br/>
               <div class="table-responsive-md">
-                <table id="categories" class="table table-bordered" >
+                <table id="qualifications" class="table table-bordered" >
                   <thead>
                     <tr>
                       <th>
                          رقم المتسلسل
                       </th>
                       <th>
-                        اسم الفئة
+                        اسم المؤهل العلمي
                       </th>
                       <th>
-                        الإعدادات
+                        الجهة المسؤولة
                       </th>
+                      <th>
+                         تاريخ المؤهل العلمي
+                      </th>
+                      <th>
+                         الإعدادات
+                     </th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach ($categories as $category )
+                    @foreach ($qualifications as $qualification )
                     <tr>
                       <td>
-                        {{$category['id']}}
+                        {{$qualification['id']}}
                       </td>
                       <td>
-                        {{$category['category_name']}}
+                        {{$qualification['name']}}
                       </td>
                       <td>
-                       <a href="{{url('admin/add-edit-category/'.$category['id'])}}">
+                        {{$qualification['theside']}}
+                      </td>
+                      <td>
+                        {{$qualification['qualification_date']}}
+                      </td>
+                      <td>
+                       <a href="{{url('admin/add-edit-qualification/'.$qualification['id'])}}">
                         <i style="font-size: 25px ;color:#007DFE;"
                         class="nav-icon fas fa-edit"></i> </a>
-                            <a href="javascript:void(0)" module="category" categ="الفئة" class="confirmDelete" moduleid="{{$category['id']}}">
+                            <a href="javascript:void(0)" module="qualification" categ="المؤهل العلمي" class="confirmDelete" moduleid="{{$qualification['id']}}">
                                 <i style="font-size: 25px ;color:#007DFE;"
                                 class="nav-icon fas fa-trash"></i> </a>
                       </td>
