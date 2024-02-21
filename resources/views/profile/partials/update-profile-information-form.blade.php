@@ -13,7 +13,7 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6" enctype="multipart/form-data">
         @csrf
         @method('patch')
 
@@ -54,31 +54,22 @@
         </div>
 
         <div>
-            <x-input-label for="experience" :value="__('الخبرات')" />
-            <x-text-input id="experience" name="experience" type="text" class="mt-1 block w-full" :value="old('experience', $user->experience)" required autofocus autocomplete="experience" />
-            <x-input-error class="mt-2" :messages="$errors->get('experience')" />
+            <x-input-label for="skills" :value="__('المهارات')" />
+            <x-text-input id="skills" name="skills" type="text" class="mt-1 block w-full" :value="old('skills', $user->skills)" autofocus autocomplete="skills" />
+            <x-input-error class="mt-2" :messages="$errors->get('skills')" />
         </div>
 
         <div>
-            <x-input-label for="qualification" :value="__('المؤهلات')" />
-            <x-text-input id="qualification" name="qualification" type="text" class="mt-1 block w-full" :value="old('qualification', $user->qualification)" required autofocus autocomplete="qualification" />
-            <x-input-error class="mt-2" :messages="$errors->get('qualification')" />
+            <x-input-label for="image" :value="__('صورة الملف الشخصي')" />
+            <input id="image" name="image" type="file" class="mt-1 block w-full">
+            <x-input-error class="mt-2" :messages="$errors->get('image')" />
         </div>
-
-        <div>
-            <x-input-label for="certificate" :value="__('الشهادات')" />
-            <x-text-input id="certificate" name="certificate" type="text" class="mt-1 block w-full" :value="old('certificate', $user->certificate)" required autofocus autocomplete="certificate" />
-            <x-input-error class="mt-2" :messages="$errors->get('certificate')" />
-        </div>
-
-        <div>
-            <x-input-label for="hobbies" :value="__('الهوايات')" />
-            <x-text-input id="hobbies" name="hobbies" type="text" class="mt-1 block w-full" :value="old('hobbies', $user->hobbies)" required autofocus autocomplete="hobbies" />
-            <x-input-error class="mt-2" :messages="$errors->get('hobbies')" />
-        </div>
+        
 
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('حفظ') }}</x-primary-button>
+
+           
 
             @if (session('status') === 'profile-updated')
                 <p

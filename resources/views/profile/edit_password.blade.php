@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','index')
+@section('title','تعديل كلمة المرور')
 
 
 @section('style')

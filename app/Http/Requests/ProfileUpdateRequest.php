@@ -18,7 +18,7 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
-            'mobile'=>['required','numeric','digits:10'],
+            'mobile'=>['numeric','digits:10'],
         ];
     }
 
@@ -28,7 +28,8 @@ class ProfileUpdateRequest extends FormRequest
         return [
             'email.required' => 'يرجى إدخال عنوان البريد الإلكتروني.',
             'name.required' => 'يرجى إدخال الاسم.',
-            'mobile.required' => 'يرجى إدخال رقم الجوال.',
+            'mobile.digits' => 'يجب أن يتكون رقم الجوال من 10 أرقام',
+            'mobile.numeric' =>'رقم الجوال عبارة عن رقم'
 
         ];
     }

@@ -51,8 +51,10 @@
                       <td>
                         {{$program['name']}}
                       </td>
-                      <td>
+                      <td>@if(isset($program['category']['category_name']))
                         {{$program['category']['category_name']}}
+                      @endif
+                      لا يوجد
                       </td>
                       <td>
                         {{$program['hours']}}

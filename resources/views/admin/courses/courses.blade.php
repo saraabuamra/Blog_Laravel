@@ -49,8 +49,10 @@
                       <td>
                         {{$course['days']}}
                       </td>
-                      <td>
+                      <td>@if (isset($course['program']['name']))
                         {{$course['program']['name']}}
+                      @endif
+                       لا يوجد
                       </td>
                       <td>
                         @if ($course['status']==1)

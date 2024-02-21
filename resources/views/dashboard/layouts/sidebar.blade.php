@@ -53,7 +53,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'poems') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('poem.poems')}}" class="nav-link">
-                        <i class="nav-icon fas fa-list"></i>
+                        <i class="nav-icon fab fa-adversal"></i>
                         <p>
                             القصائد
                         </p>
@@ -62,7 +62,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'articals') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('artical.articals')}}" class="nav-link">
-                        <i class="nav-icon fas fa-table"></i>
+                        <i class="nav-icon fas fa-align-right"></i>
                         <p>
                             المقالات
                         </p>
@@ -71,7 +71,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'channels') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('channel.channels')}}" class="nav-link">
-                      <i class="nav-icon fas fa-star"></i>
+                      <i class="nav-iconfab fab fa-youtube"></i>
                         <p>
                             قنوات اليوتيوب
                         </p>
@@ -80,7 +80,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'categories') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('category.categories')}}" class="nav-link">
-                      <i class="nav-icon fas fa-file"></i>
+                      <i class="nav-icon fas fa-clone"></i>
                         <p>
                              الفئات
                         </p>
@@ -89,7 +89,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'programs') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('program.programs')}}" class="nav-link">
-                      <i class="nav-icon fas fa-moon"></i>
+                      <i class="nav-icon fas fa-bookmark"></i>
                         <p>
                              البرامج التدريبية
                         </p>
@@ -107,7 +107,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'certificates') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('certificate.certificates')}}" class="nav-link">
-                      <i class="nav-icon fas fa-sound"></i>
+                      <i class="nav-icon fa fa-graduation-cap"></i>
                         <p>
                              الشهادات  
                         </p>
@@ -116,7 +116,7 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'qualifications') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('qualification.qualifications')}}" class="nav-link">
-                      <i class="nav-icon fas fa-camera"></i>
+                      <i class="nav-icon fas fa-award"></i>
                         <p>
                              المؤهلات العلمية  
                         </p>
@@ -125,9 +125,36 @@
                 <li class="nav-item">
                     <a @if (Session::get('page') == 'experiences') style="background-color:#007BFF !important; 
                     color:white !important;" @endif href="{{route('experience.experiences')}}" class="nav-link">
-                      <i class="nav-icon fas fa-camera"></i>
+                      <i class="nav-icon fas fa-border-all"></i>
                         <p>
                               الخبرات  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'designs') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('design.designs')}}" class="nav-link">
+                      <i class="nav-icon fa fa-heart"></i>
+                        <p>
+                              معرض التصاميم  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'images') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('image.images')}}" class="nav-link">
+                      <i class="nav-icon fas fa-camera-retro"></i>
+                        <p>
+                              معرض الصور  
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a @if (Session::get('page') == 'files') style="background-color:#007BFF !important; 
+                    color:white !important;" @endif href="{{route('file.files')}}" class="nav-link">
+                      <i class="nav-icon fas fa-cloud-upload-alt"></i>
+                        <p>
+                            الملفات  
                         </p>
                     </a>
                 </li>

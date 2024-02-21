@@ -64,7 +64,8 @@ class ProgramController extends Controller
                 'hours.required'=>' عدد ساعات البرنامج التدريبي مطلوبة',
                 'goal.required'=>'الهدف من البرنامج التدريبي مطلوب',
                 'image.image'=>'يجب أن يكون الملف عبارة عن صورة',
-                'category_id.required'=>'الفئة مطلوبة'
+                'category_id.required'=>'الفئة مطلوبة',
+                'image.mimes'=>'يجب أن يكون حقل الصورة ملفًا من النوع: jpeg، png، jpg، gif، svg.',
             ]);
 
            //upload Program image

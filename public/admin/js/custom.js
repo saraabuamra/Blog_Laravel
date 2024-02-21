@@ -41,7 +41,22 @@ var table = new DataTable('#experiences', {
       url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/ar.json',
   },
 });
+var table = new DataTable('#designs', {
+  language: {
+      url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/ar.json',
+  },
+});
+var table = new DataTable('#images', {
+  language: {
+      url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/ar.json',
+  },
+});
 
+var table = new DataTable('#files', {
+  language: {
+      url: '//cdn.datatables.net/plug-ins/2.0.0/i18n/ar.json',
+  },
+});
 $(function() {
   $('#enddatepicker').datepicker(
     {
@@ -85,7 +100,24 @@ $(function() {
       format: 'yyyy/mm/dd' // you can change the date format if needed
   }
   );
+
+  $('#designdatepicker').datepicker(
+    {
+      autoclose: true,
+      language: 'ar',
+      format: 'yyyy/mm/dd' // you can change the date format if needed
+  }
+  );
+
+  $('#imagedatepicker').datepicker(
+    {
+      autoclose: true,
+      language: 'ar',
+      format: 'yyyy/mm/dd' // you can change the date format if needed
+  }
+  );
 });
+
 
      //update course status
      $(document).on("click",".updateCourseStatus",function(){
@@ -135,42 +167,46 @@ $(function() {
       })
 
 
-   
-      //update image status
-     $(document).on("click",".updateImageStatus",function(){
+        //update file status
+     $(document).on("click",".updateFileStatus",function(){
       var status = $(this).children("i").attr("status");
-      var image_id = $(this).attr("image_id");
+      var file_id = $(this).attr("file_id");
+      
           $.ajax({
               headers: {
                   'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
               },
               type: 'post',
-              url: '/admin/update-image-status',
-              data: {status:status,image_id:image_id},
+              url: '/admin/update-file-status',
+              data: {status:status,file_id:file_id},
               success: function(resp){
                   if(resp['status']==0){
                     Swal.fire({
-                      title: 'This image is Not Available',
+                      title: 'غير مسموح بالنشر',
                   
                       showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                       },
                       hideClass: {
                         popup: 'animate__animated animate__fadeOutUp'
-                      }
+                      },
+                      confirmButtonText: 'تأكيد', 
                     }),
-                    $("#image-"+image_id).html("<i style='font-size: 25px;color:#4B49AC;' class='mdi mdi-lock' status='Inactive'></i>")
+                    $("#file-"+file_id).html("<i style='font-size: 25px;color:#007DFE;' class='nav-icon fas fa-lock' status='Inactive'></i>"),
+                    $("#state-"+file_id).html("<span status='Inactive'>غير منشورة</span>")
                   }else if(resp['status']==1){
                     Swal.fire({
-                      title: 'This image is Available',
+                      title: 'تم السماح بالنشر',
                       showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                       },
                       hideClass: {
                         popup: 'animate__animated animate__fadeOutUp'
-                      }
+                      },
+                      confirmButtonText: 'تأكيد', 
                     }),
-                    $("#image-"+image_id).html("<i style='font-size: 25px;color:#4B49AC;' class='mdi mdi-lock-open-outline' status='Active'></i>")
+                    $("#file-"+file_id).html("<i style='font-size: 25px;color:#007DFE;' class='nav-icon fas fa-lock-open' status='Active'></i>"),
+                    $("#state-"+file_id).html("<span status='Active'>منشورة</span>")
                   }
               },error:function(){
                 alert('Error');
@@ -178,6 +214,8 @@ $(function() {
               
             });
       })
+
+
     
       $("document").ready(function(){
         setTimeout(function() {
@@ -202,9 +240,24 @@ $(function() {
       });
 
       // Display file name in text input when file is selected
-      $("#image").change(function () {
+      $("#file_url").change(function () {
           $('#text_input_id').val(this.files[0].name);
       });
+
+       // When the span is clicked, trigger the file input click event
+       $('#text_input_span_id').click(function () {
+        $("#file_url").trigger('click');
+    });
+
+    // When the text input is clicked, trigger the file input click event
+    $('#text_input_id').click(function () {
+        $("#file_url").trigger('click');
+    });
+
+    // Display file name in text input when file is selected
+    $("#file_url").change(function () {
+        $('#text_input_id').val(this.files[0].name);
+    });
 
         $(document).on("click",".confirmDelete",function(){
         var module = $(this).attr('module');

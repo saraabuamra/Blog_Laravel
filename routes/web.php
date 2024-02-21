@@ -5,11 +5,15 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\ChannelController;
 use App\Http\Controllers\Admin\CourseController;
+use App\Http\Controllers\Admin\DesignController;
 use App\Http\Controllers\Admin\ExperienceController;
+use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\PoemController;
 use App\Http\Controllers\Admin\ProgramController;
 use App\Http\Controllers\Admin\QualificationController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Front\FrontController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -116,6 +120,40 @@ Route::middleware('auth')->prefix('admin')->group(function () {
             
     //add-edit-experience
     Route::match(['get', 'post'],'add-edit-experience/{id?}',[ExperienceController::class, 'addEditExperience']);
+
+    //designs
+    Route::get('/designs', [DesignController::class, 'designs'])->name('design.designs');
+
+    //delete design
+    Route::get('delete-design/{id}',[DesignController::class, 'deleteDesign'])->name('design.deletedesign');
+             
+    //add-edit-design
+    Route::match(['get', 'post'],'add-edit-design/{id?}',[DesignController::class, 'addEditDesign']);
+
+    //images
+    Route::get('/uplodeImages', [ImageController::class, 'images'])->name('image.images');
+
+    //delete image
+    Route::get('delete-image/{id}',[ImageController::class, 'deleteImage'])->name('image.deleteimage');
+            
+    //add-edit-image
+    Route::match(['get', 'post'],'add-edit-image/{id?}',[ImageController::class, 'addEditImage']);
+
+    //files
+    Route::get('/uplodeFiles', [FileController::class, 'files'])->name('file.files');
+
+    //delete file
+    Route::get('delete-file/{id}',[FileController::class, 'deleteFile'])->name('image.deletefile');
+              
+    //add-edit-file
+    Route::match(['get', 'post'],'add-edit-file/{id?}',[FileController::class, 'addEditFile']);
+
+    //Update file Status
+    Route::post('update-file-status',[FileController::class, 'updateFileStatus']);
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/',[FrontController::class, 'websiteView']);
 });
 
 require __DIR__.'/auth.php';

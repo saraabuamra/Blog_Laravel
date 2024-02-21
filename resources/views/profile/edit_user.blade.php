@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','index')
+@section('title','السيرة الذاتية')
 
 
 @section('style')
