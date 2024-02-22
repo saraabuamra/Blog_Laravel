@@ -8,7 +8,11 @@
       <nav style="position: relative;left:120px" id="navbar" class="navbar">
         <ul>
           <li><a @if (Session::get('page') == 'index') class="nav-link scrollto active" @endif  href="{{route('index')}}">الرئيسية</a></li>
-          <li><a @if (Session::get('page') == 'cv_artical') class="nav-link scrollto active" @endif  href="{{route('cv.articals')}}">محمد العتيبي</a></li>
+          <li><a @if (Session::get('page') == 'cv'|| Session::get('page') == 'cv_poem' 
+            || Session::get('page') == 'cv_channel' || Session::get('page') == 'cv_qualification'
+            || Session::get('page') == 'cv_experience' || Session::get('page') == 'cv_image' 
+            || Session::get('page') == 'cv_design' || Session::get('page') == 'cv_file'
+            || Session::get('page') == 'cv_artical') class="nav-link scrollto active" @endif  href="{{route('cv')}}">محمد العتيبي</a></li>
           <li class="dropdown megamenu"><a href="#"><span>البرامج التدريبية</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li class="dropdown"><a href="#"><span>الدورات المتاحة</span></a>

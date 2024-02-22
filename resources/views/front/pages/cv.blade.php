@@ -19,7 +19,7 @@ border-color: #e5eaea;
           <div class="col-lg-4">
             <div class="card" style="width: 18rem;border:none">
                 <ul class="list-group list-group-flush">
-                  <a href="{{route('cv.articals')}}"><li @if (Session::get('page') == 'cv_artical') style="background-color:white !important; border-left: 3px solid #37517e;
+                  <a href="{{route('cv.articals')}}"><li @if (Session::get('page') == 'cv_artical' || Session::get('page') == 'cv' ) style="background-color:white !important; border-left: 3px solid #37517e;
                     color:#2e343c !important;" @endif  class="list-group-item">كلمات في الحياة</li></a>
                   <a href="{{route('cv.poems')}}"><li @if (Session::get('page') == 'cv_poem') style="background-color:white !important; border-left: 3px solid #37517e;
                     color:#2e343c !important;" @endif  class="list-group-item">قصائدي</li></a>

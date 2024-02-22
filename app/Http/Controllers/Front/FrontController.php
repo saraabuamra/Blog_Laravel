@@ -24,14 +24,13 @@ class FrontController extends Controller
         return view('front.pages.index')->with(compact('admins','qualifications','experiences'));
     }
 
-    // public function cv(): View
-    // {
-    //     Session::put('page','cv');
-    //     $admins = User::get()->toArray();
-    //     $qualifications = Qualification::get()->toArray();
-    //     $experiences = Experience::get()->toArray();
-    //     return view('front.pages.cv')->with(compact('admins','qualifications','experiences'));
-    // }
+    public function cv(): View
+    {
+        Session::put('page','cv');
+         $articals = Artical::get()->toArray();
+        $admins = User::get()->toArray();
+        return view('front.pages.artical')->with(compact('articals','admins'));
+    }
 
     public function cvArtical(): View
     {
