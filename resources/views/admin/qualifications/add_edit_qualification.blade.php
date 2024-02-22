@@ -4,9 +4,6 @@
 
 
 @section('style')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
 @section('content')
@@ -44,16 +41,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="qualification_date">تاريخ المؤهل العلمي</label>
-                                    <div class="input-group date"  id="datepickerqualification">
+                                    <div class="input-group date"  id="qualification_date">
                                         <input type="text" placeholder="أدخل تاريخ المؤهل العلمي" class="form-control" id="qualification_date"
                                         name="qualification_date"  @if (!empty($qualification['qualification_date']))
                                         value="{{ $qualification['qualification_date'] }}" @else value="{{old('qualification_date')}}"
                                        @endif>
-                                        <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
                                     </div>
                             </div>
 
@@ -66,7 +58,4 @@
 
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 @endsection

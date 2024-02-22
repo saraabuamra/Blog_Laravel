@@ -39,10 +39,8 @@ class CertificateController extends Controller
            $data = $request->all();
             $this->validate($request, [
                     'name'=>'required',
-                    'theside'=>'required',
             ],[
                 'name.required'=>'اسم الشهادة مطلوب',
-                'theside.required'=>'الجهة المسؤولة عن الشهادة مطلوبة',
             ]);
 
         

@@ -40,18 +40,8 @@ class ExperienceController extends Controller
            $data = $request->all();
             $this->validate($request, [
                     'name'=>'required',
-                    'theside'=>'required',
-                    'from_date' => 'required|date|before_or_equal:to_date',
-                    'to_date' => 'required|date|after_or_equal:from_date',
             ],[
                 'name.required'=>'اسم الخبرة مطلوب',
-                'theside.required'=>'الجهة المسؤولة عن الخبرة مطلوبة',
-                'from_date.required'=>'تاريخ بدء الحصول على الخبرة مطلوب',
-                'to_date.required'=>'تاريخ الانتهاء من الحصول على الخبرة مطلوب',
-                'from_date.date'=>'يجب أن يكون حقل تاريخ البدء تاريخًا صالحًا.',
-                'to_date.after_or_equal'=>'يجب أن يكون حقل تاريخ الانتهاء تاريخًا بعد تاريخ البدء أو يساويه.',
-                'from_date.before_or_equal'=>'يجب أن يكون حقل تاريخ البدء تاريخًا قبل تاريخ الانتهاء أو يساويه.',
-                'to_date.date'=>'يجب أن يكون حقل تاريخ الانتهاء تاريخًا صالحًا.',
             ]);
 
            $experience->name = $request->name;

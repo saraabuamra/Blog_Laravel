@@ -1,6 +1,6 @@
 @extends('dashboard.layouts.layout')
 
-@section('title','الؤهلات العلمية')
+@section('title','المؤهلات العلمية')
 
 
 @section('style')

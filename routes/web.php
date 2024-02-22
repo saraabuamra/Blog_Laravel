@@ -152,8 +152,21 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('update-file-status',[FileController::class, 'updateFileStatus']);
 });
 
-Route::middleware('guest')->group(function () {
-    Route::get('/',[FrontController::class, 'websiteView']);
-});
 
 require __DIR__.'/auth.php';
+
+
+Route::middleware('web')->group(function () {
+    Route::get('/',[FrontController::class, 'index'])->name('index');
+    Route::get('/cv',[FrontController::class, 'cvArtical'])->name('cv.articals');
+    Route::get('/cv/poems',[FrontController::class, 'cvPoem'])->name('cv.poems');
+    Route::get('/cv/qualification',[FrontController::class, 'cvQualification'])->name('cv.qualifications');
+    Route::get('/cv/experience',[FrontController::class, 'cvExperience'])->name('cv.experiences');
+    Route::get('/cv/channel',[FrontController::class, 'cvChannel'])->name('cv.channels');
+    Route::get('/cv/image',[FrontController::class, 'cvImage'])->name('cv.images');
+    Route::get('/cv/design',[FrontController::class, 'cvDesign'])->name('cv.designs');
+    Route::get('/cv/file',[FrontController::class, 'cvFile'])->name('cv.files');
+
+
+
+});

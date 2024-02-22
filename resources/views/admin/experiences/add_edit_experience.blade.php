@@ -4,9 +4,6 @@
 
 
 @section('style')
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
 @section('content')
@@ -44,30 +41,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="from_date">تاريخ بدء الحصول على الخبرة</label>
-                                    <div class="input-group date"  id="fromdatepicker">
+                                    <div class="input-group date"  id="from_date">
                                         <input type="text" placeholder="أدخل تاريخ بدء الخبرة" class="form-control" id="from_date"
                                         name="from_date"  @if (!empty($experience['from_date']))
                                         value="{{ $experience['from_date'] }}" @else value="{{old('from_date')}}"
                                        @endif>
-                                        <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
                                     </div>
                             </div>
                             <div class="form-group">
                                 <label for="to_date">تاريخ الانتهاء من الحصول على الخبرة</label>
-                                    <div class="input-group date"  id="todatepicker">
+                                    <div class="input-group date"  id="to_date">
                                         <input type="text" placeholder="أدخل تاريخ انتهاء الحصول على الخبرة" class="form-control" id="to_date"
                                         name="to_date"  @if (!empty($experience['to_date']))
                                         value="{{ $experience['to_date'] }}" @else value="{{old('to_date')}}"
                                        @endif>
-                                        <span class="input-group-append">
-                                            <span class="input-group-text bg-white d-block">
-                                                <i class="fa fa-calendar"></i>
-                                            </span>
-                                        </span>
                                     </div>
                             </div>
                             <div class="form-group">
@@ -84,7 +71,4 @@
 
 @endsection
 @section('script')
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 @endsection

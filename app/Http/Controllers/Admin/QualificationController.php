@@ -39,10 +39,8 @@ class QualificationController extends Controller
            $data = $request->all();
             $this->validate($request, [
                     'name'=>'required',
-                    'theside'=>'required',
             ],[
                 'name.required'=>'اسم المؤهل العلمي مطلوب',
-                'theside.required'=>'الجهة المسؤولة عن المؤهل مطلوبة',
             ]);
 
         

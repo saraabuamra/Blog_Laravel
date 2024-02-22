@@ -49,12 +49,13 @@ class ProfileController extends Controller
         // Update the user's image path in the database
         $validatedData['image'] = $imagePath;
     }
+    
         $request->user()->fill($request->validated());
 
         if ($request->user()->isDirty('email')) {
             $request->user()->email_verified_at = null;
         }
-        dd($request->user());
+        // dd($request->user());
         $request->user()->save();
 
         return Redirect::route('profile.edit')->with('status', 'تم تعديل بياناتك الشخصية بنجاح');

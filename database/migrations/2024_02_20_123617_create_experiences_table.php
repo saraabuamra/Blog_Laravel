@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('experiences', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('theside');
-            $table->date('from_date');
-            $table->date('to_date');
+            $table->string('theside')->nullable();
+            $table->text('from_date')->nullable();
+            $table->text('to_date')->nullable();
             $table->string('notes')->nullable();
             $table->timestamps();
         });
